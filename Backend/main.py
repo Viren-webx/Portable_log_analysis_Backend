@@ -16,7 +16,7 @@ app = FastAPI()
 # ================= CORS =================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://portablelog.netlify.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,7 +28,7 @@ def home():
     return {"message": "Log Analyzer Running 🚀 (File Mode Only)"}
 
 # ================= FILE ANALYSIS =================
-@app.post("/analyze")
+@app.post("/")
 async def analyze_log(file: UploadFile = File(...)):
     try:
         # 📥 Read file
